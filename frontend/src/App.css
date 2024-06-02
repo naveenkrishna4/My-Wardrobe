@@ -1,0 +1,114 @@
+/* App.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f7f7f7b9;
+  margin-bottom: 0;
+}
+
+header {
+  background-color: #333;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+}
+
+.main-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 50px;
+  margin-bottom: 0; /* Remove default bottom margin */
+
+}
+
+.wardrobe-tabs {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 45%;
+}
+
+.wardrobe-tab {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 40px; /* Increase padding */
+  margin-bottom: 40px; /* Increase margin */
+  cursor: pointer;
+  width: calc(50% - 20px); /* Ensure the tabs occupy the entire width of the wardrobe-tabs container */
+  height: 400px; /* Increase height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* App.css */
+.wardrobe-tabs {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 45%;
+}
+
+.view-wardrobe-tab {
+  background-color: #f0f0f0;
+  margin-left: 50px;
+  margin-right: 50px; /* Add margin between View and Modify tabs */
+}
+
+.modify-wardrobe-tab {
+  background-color: #e0e0e0;
+  margin-left: 50px; /* Add margin between View and Modify tabs */
+}
+
+.button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+.calendar-container {
+  /* Adjust positioning */
+  margin-top: 20px; /* Move the calendar container down */
+  margin-left: 100px; /* Move the calendar container to the right */
+}
+
+/* App.css */
+/* Keep your existing CSS rules */
+
+/* Add new CSS for the logout button */
+.logout-button {
+  position: fixed;
+  bottom: 20px; /* Adjust the distance from the bottom */
+  right: 20px; /* Adjust the distance from the right */
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: black;
+}
