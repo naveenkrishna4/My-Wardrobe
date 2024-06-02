@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 // Endpoint to verify reCAPTCHA token
 app.post('/verify-recaptcha', async (req, res) => {
     const { token } = req.body;
-    const secretKey = process.env.SECRETKEY; 
+    const secretKey = JO4pAAAAAIcr9Y5dbCcok0_dX0NHh7DvHW7B; 
 
     try {
         console.log('Received reCAPTCHA token:', token);
