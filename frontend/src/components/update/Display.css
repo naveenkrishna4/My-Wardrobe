@@ -1,0 +1,26 @@
+.main{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 50px;
+    gap: 30px;
+}
+
+.add-dis{
+    margin-bottom: 5rem;
+    background: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+}
+
+.img-add{
+    padding-left: 1.2rem;
+    height: 5rem;
+    width: 5rem;
+}
+
+.desc-add{
+    font-weight: 700;
+    font-size: large;
+}
