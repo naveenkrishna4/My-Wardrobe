@@ -1,21 +1,21 @@
-import React, { useState } from 'react';
-import { auth, sendPasswordResetEmail } from '../../firebaseConfig';
+import React, { useState } from "react";
+import { auth, sendPasswordResetEmail } from "../../firebaseConfig.js";
 
 const ForgotPassword = ({ onClose }) => {
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
-  const [error, setError] = useState('');
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
 
   const handlePasswordReset = async (e) => {
     e.preventDefault();
-    setMessage('');
-    setError('');
+    setMessage("");
+    setError("");
 
     try {
       await sendPasswordResetEmail(auth, email);
-      setMessage('Password reset email sent. Please check your inbox.');
+      setMessage("Password reset email sent. Please check your inbox.");
     } catch (error) {
-      console.error('Error sending password reset email:', error);
+      console.error("Error sending password reset email:", error);
       setError(error.message);
     }
   };
@@ -33,8 +33,8 @@ const ForgotPassword = ({ onClose }) => {
         />
         <button type="submit">Send Reset Link</button>
       </form>
-      {message && <p style={{ color: 'green' }}>{message}</p>}
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+      {message && <p style={{ color: "green" }}>{message}</p>}
+      {error && <p style={{ color: "red" }}>{error}</p>}
       <button onClick={onClose}>Close</button>
     </div>
   );

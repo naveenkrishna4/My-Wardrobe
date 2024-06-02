@@ -1,6 +1,6 @@
-import React from 'react';
-import { Navigate } from 'react-router-dom';
-import { useAuth } from './AuthContext';
+import React from "react";
+import { Navigate } from "react-router-dom";
+import { useAuth } from "./AuthContext.js";
 
 const PrivateRoute = ({ children }) => {
   const { currentUser } = useAuth();
@@ -8,8 +8,6 @@ const PrivateRoute = ({ children }) => {
   if (!currentUser) {
     return <Navigate to="/" />;
   }
-
-  
 
   return children;
 };

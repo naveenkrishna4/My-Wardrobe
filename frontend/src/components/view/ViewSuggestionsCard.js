@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { firestore } from "../../firebaseConfig";
+import { firestore } from "../../firebaseConfig.js";
 import "./VeiwSuggestionsCard.css";
 import {
   getDocs,

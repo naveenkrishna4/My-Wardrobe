@@ -1,11 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
-import Calendar from 'react-calendar'; // Assuming you're using react-calendar library
-import 'react-calendar/dist/Calendar.css';
-import './CalendarComponent.css'; // Import your component-specific CSS file
-import { collection, query, where, getDocs } from 'firebase/firestore';
-import { firestore } from '../../firebaseConfig';
-import { startOfDay, endOfDay } from 'date-fns';
-
+import React, { useState, useEffect, useRef } from "react";
+import Calendar from "react-calendar"; // Assuming you're using react-calendar library
+import "react-calendar/dist/Calendar.css";
+import "./CalendarComponent.css"; // Import your component-specific CSS file
+import { collection, query, where, getDocs } from "firebase/firestore";
+import { firestore } from "../../firebaseConfig.js";
+import { startOfDay, endOfDay } from "date-fns";
 
 function CalendarComponent() {
   const [selectedDate, setSelectedDate] = useState(null); // State to track selected date
@@ -20,27 +19,29 @@ function CalendarComponent() {
 
   useEffect(() => {
     if (selectedDate) {
-      console.log('Fetching wardrobe data...');
+      console.log("Fetching wardrobe data...");
       setLoading(true);
-      
+
       const fetchWardrobeData = async () => {
         const start = startOfDay(selectedDate); // Get the start of the selected date
-        const end = endOfDay(selectedDate);     // Get the end of the selected date
-    
-        const q = query(collection(firestore, 'wardrobe'), 
-                        where('date', '>=', start), // Use start directly
-                        where('date', '<=', end));  // Use end directly
-    
+        const end = endOfDay(selectedDate); // Get the end of the selected date
+
+        const q = query(
+          collection(firestore, "wardrobe"),
+          where("date", ">=", start), // Use start directly
+          where("date", "<=", end)
+        ); // Use end directly
+
         const querySnapshot = await getDocs(q);
-        const data = querySnapshot.docs.map(doc => doc.data());
+        const data = querySnapshot.docs.map((doc) => doc.data());
         setWardrobeData(data);
         setLoading(false);
       };
-    
+
       fetchWardrobeData();
     }
   }, [selectedDate]);
-  
+
   // Function to handle click outside the popup card
   const handleClickOutsidePopup = (event) => {
     if (popupRef.current && !popupRef.current.contains(event.target)) {
@@ -57,14 +58,12 @@ function CalendarComponent() {
     };
   }, []);
 
-  console.log('Selected date:', selectedDate);
-  console.log('Wardrobe data:', wardrobeData);
+  console.log("Selected date:", selectedDate);
+  console.log("Wardrobe data:", wardrobeData);
 
   return (
     <div>
-      <Calendar
-        onClickDay={handleDateClick}
-      />
+      <Calendar onClickDay={handleDateClick} />
       {/* Popup card to display wardrobe data */}
       {selectedDate && (
         <div className="popup-overlay">
@@ -75,9 +74,13 @@ function CalendarComponent() {
               <>
                 {wardrobeData.length > 0 ? (
                   <>
-                    {wardrobeData.map(item => (
+                    {wardrobeData.map((item) => (
                       <div key={item.id}>
-                        <img className="wardrobe-image" src={item.imageUrl} alt="Wardrobe" />
+                        <img
+                          className="wardrobe-image"
+                          src={item.imageUrl}
+                          alt="Wardrobe"
+                        />
                         <h3>{item.title}</h3>
                         <p>{item.description}</p>
                         <p>Category: {item.category}</p>
@@ -98,4 +101,3 @@ function CalendarComponent() {
 }
 
 export default CalendarComponent;
-  
