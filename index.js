@@ -2,7 +2,9 @@ import express from 'express';
 import axios from 'axios';
 import bodyParser from 'body-parser';
 import cors from 'cors';
+import path from "path";
 
+const __dirname = path.resolve();
 
 const app = express();
 const PORT = 5000;
@@ -35,6 +37,12 @@ app.post('/verify-recaptcha', async (req, res) => {
         console.error('Error verifying reCAPTCHA token:', error);
         res.status(500).json({ success: false, error: 'An internal server error occurred' });
     }
+});
+
+app.use(express.static(path.join(__dirname, "frontend/build")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "frontend", "build", "index.html"));
 });
 
 // Start the server
