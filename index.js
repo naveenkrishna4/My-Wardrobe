@@ -42,7 +42,7 @@ app.post('/verify-recaptcha', async (req, res) => {
 app.use(express.static(path.join(__dirname, "frontend/build")));
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "frontend", "build", "src/index.js"));
+  res.sendFile(path.join(__dirname, "frontend", "build", "public/index.html"));
 });
 
 // Start the server
