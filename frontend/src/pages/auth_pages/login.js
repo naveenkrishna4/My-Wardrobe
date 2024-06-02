@@ -32,7 +32,7 @@ const Login = () => {
         return;
       }
 
-      const response = await axios.post('https://my-wardrobe-c07u.onrender.com/verify-recaptcha', { token: recaptchaToken });
+      const response = await axios.post('http://localhost:5000/verify-recaptcha', { token: recaptchaToken });
       if (response.data.success) {
         if (!email.trim() || !password.trim()) {
           setError('Email and password are required.');

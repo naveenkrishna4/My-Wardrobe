@@ -95,7 +95,7 @@ const Register = () => {
         <button type="submit">Register</button>
       </form>
       <ReCAPTCHA
-        sitekey={process.env.SITEKEY}
+        sitekey='6Lc-JO4pAAAAAPbCC5jn3X-AuRMJcTMrw7QTgZki'
         onChange={handleRecaptchaChange}
       />
       {error && <p>{error}</p>}
