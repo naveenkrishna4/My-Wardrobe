@@ -16,8 +16,10 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon index.js",
-    "start": "nodemon index.js",
-    "build":"npm install && npm install --prefix frontend && npm run build --prefix frontend"
+    "start": "node index.js",
+    "build": "npm run install:frontend && npm run build:frontend",
+    "install:frontend": "npm install --prefix frontend",
+    "build:frontend": "npm run build --prefix frontend"
   },
   "author": "",
   "license": "ISC",
